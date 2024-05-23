@@ -22,8 +22,6 @@ class Mutual:
     'Perdida'
     """
 
-
-
     ESTADO_BALANCEADO = 0
     ESTADO_PERDIDA = 1
     ESTADO_PASIVO = 2
@@ -69,7 +67,6 @@ class Mutual:
         >>> mutual.get_credito()
         600
         """        
-
 
         if categoria == self.TITULAR_A:
             self.credito += self.MONTO_A
@@ -164,21 +161,8 @@ class Mutual:
     def get_credito(self):
         return self.credito #Nuevo metodo agregado.
     
-
     def get_consumo(self):
         return self.consumo
-
-    def __calcular_estado(self):
-        porcentaje_consumo = (self.consumo * 100) / self.credito
-        diferencia_porcentual = 100 - porcentaje_consumo
-        if diferencia_porcentual > 20:
-            self.estado = self.ESTADO_GANANCIA
-        elif diferencia_porcentual <= 20 and diferencia_porcentual >= 0:
-            self.estado = self.ESTADO_BALANCEADO
-        elif diferencia_porcentual < 0 and diferencia_porcentual >= -20:
-            self.estado = self.ESTADO_PASIVO
-        elif diferencia_porcentual < -20:
-            self.estado = self.ESTADO_PERDIDA
 
     def to_string(self):
         print("Cantidad titulares: ", self.get_titulares(), '\n'
