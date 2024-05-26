@@ -395,7 +395,32 @@ class TestMutual(unittest.TestCase):
 
     def test_todas_las_acciones(self):
         mutual = Mutual()
+        self.assertEqual(mutual.get_estado(), Mutual.ESTADO_GANANCIA)
 
+        mutual.add_beneficiario(0)
+        mutual.add_beneficiario(1)
+        mutual.add_beneficiario(2)
+        self.assertEqual(mutual.get_estado(), Mutual.ESTADO_PERDIDA)
+        mutual.add_beneficiario(3)
+        mutual.add_beneficiario(4)
+
+        mutual.delete_beneficiario(0)
+        mutual.delete_beneficiario(1)
+        mutual.delete_beneficiario(2)
+        self.assertEqual(mutual.get_estado(), Mutual.ESTADO_GANANCIA)
+        mutual.delete_beneficiario(3)
+        mutual.delete_beneficiario(4)
+
+        mutual.add_titular(Mutual.TITULAR_A)
+        self.assertEqual(mutual.get_estado(), Mutual.ESTADO_GANANCIA)   
+        mutual.add_titular(Mutual.TITULAR_B)
+        mutual.add_titular(Mutual.TITULAR_C)
+        #mutual.add_titular(Mutual.TITULAR_D)
+        
+        mutual.add_titular(Mutual.TITULAR_A)
+        mutual.add_titular(Mutual.TITULAR_B)
+        mutual.add_titular(Mutual.TITULAR_C)
+        self.assertEqual(mutual.get_estado(), Mutual.ESTADO_GANANCIA)
 # FIN tests derivados del Testing de Estados
 
 if __name__ == '__main__':
