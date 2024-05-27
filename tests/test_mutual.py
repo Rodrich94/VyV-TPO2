@@ -417,9 +417,9 @@ class TestMutual(unittest.TestCase):
         mutual.add_titular(Mutual.TITULAR_C)
         #mutual.add_titular(Mutual.TITULAR_D)
         
-        mutual.add_titular(Mutual.TITULAR_A)
-        mutual.add_titular(Mutual.TITULAR_B)
-        mutual.add_titular(Mutual.TITULAR_C)
+        mutual.delete_titular(Mutual.TITULAR_A)
+        mutual.delete_titular(Mutual.TITULAR_B)
+        mutual.delete_titular(Mutual.TITULAR_C)
         self.assertEqual(mutual.get_estado(), Mutual.ESTADO_GANANCIA)
 # FIN tests derivados del Testing de Estados
 

@@ -181,3 +181,4 @@ class Mutual:
             "Consumo: ", self.get_consumo(), '\n'
             "Estado actual mutual: ", self.get_estado_str(), '\n'
             )
+        
